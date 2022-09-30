@@ -15,7 +15,7 @@ os.system("cls")
 ################
 #read configs
 config = configparser.ConfigParser()
-config.read('C:/Users/Gurk/Documents/Python/Twitter Bot v1/config.ini')
+config.read('config.ini')
 
 #retrieve access info
 api_key=config['twitter']['api_key']
@@ -47,7 +47,7 @@ counter=0
 
 #Go through tweets in client response
 print("Fetching Tweets...".center(70,"@"))
-with open(f"C:/Users/Gurk/Documents/Python/Twitter Bot v1/{filename}.csv", "a") as outfile:
+with open(f"{filename}.csv", "a") as outfile:
     print("File opened")
     for tweet in tweepy.Paginator(client.search_recent_tweets, query = search, max_results=100, tweet_fields=['created_at', 'lang','author_id','public_metrics'], expansions = ['geo.place_id']).flatten(limit=10000):
 
